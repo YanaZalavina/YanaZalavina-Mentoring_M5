@@ -1,0 +1,33 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNGSuite" parallel="classes" thread-count="5">
+    <test name="Sum operations with long values">
+        <classes>
+            <class name="testNGTests.SumLongCalculatorTest"></class>
+        </classes>
+    </test>
+    <test name="Sum operations with double values">
+        <classes>
+            <class name="testNGTests.SumDoubleCalculatorTest"></class>
+        </classes>
+    </test>
+    <test name = "AllTestNGSuite">
+        <groups>
+            <define name="simpleOperations">
+                <include name="sum"/>
+                <include name="div"/>
+                <include name="mult"/>
+            </define>
+            <define name="complexOperations">
+                <include name="cos"/>
+                <include name="sin"/>
+            </define>
+            <run>
+                <include name="simpleOperations"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="testNGTests.*" ></package>
+        </packages>
+    </test>
+</suite>
+
